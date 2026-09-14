@@ -1,0 +1,47 @@
+/* Design tokens sampled from the reference screenshots */
+:root {
+  --font: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Study area (chapter pages, forms) – blue-violet */
+  --indigo: #3a1dc2;
+  --indigo-600: #3016a6;
+  --indigo-100: #e7e3fb;
+  --indigo-50: #f3f1fd;
+
+  /* Marketing pages – deep purple */
+  --purple: #43169b;
+  --purple-700: #34107d;
+  --purple-500: #5b2cc4;
+  --purple-100: #ebe4fa;
+  --purple-50: #f5f2fc;
+
+  --ink: #17133f;          /* headings */
+  --text: #2b2946;         /* body */
+  --muted: #6c6b82;
+  --faint: #9a99ab;
+  --line: #ebe9f3;
+  --line-strong: #dedbea;
+  --bg: #ffffff;
+  --bg-soft: #f7f6fc;
+  --bg-crumb: #f3f2fc;
+
+  --navy: #1b1653;         /* study footers */
+  --navy-deep: #140f45;    /* bottom bar of site footer */
+  --topbar-from: #1d0b52;
+  --topbar-to: #3a1788;
+
+  --green: #1e9a4b;
+  --green-100: #e2f5e8;
+  --green-50: #effaf2;
+  --red: #e5484d;
+  --red-50: #fdeeee;
+  --orange: #f07a19;
+  --amber: #f6b50e;
+  --blue: #2f7ce8;
+
+  --r-sm: 6px;
+  --r: 8px;
+  --r-lg: 12px;
+  --shadow: 0 2px 12px rgba(45, 30, 120, 0.05);
+  --shadow-pop: 0 18px 50px rgba(35, 20, 100, 0.14);
+}
