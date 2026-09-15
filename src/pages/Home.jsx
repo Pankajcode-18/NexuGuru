@@ -12,9 +12,12 @@ import {
   Heart,
   Mountain,
   Play,
+  Send,
   ShoppingBag,
   Smile,
+  Sparkles,
   Tv,
+  Users,
   UsersRound,
 } from 'lucide-react';
 import { useState } from 'react';
@@ -27,19 +30,19 @@ const classes = [
   {
     grade: 'Class 12',
     to: '/class-12',
-    avatar: 'avatar-sm',
+    avatar: 'avatar-class-12',
     label: 'Explore',
   },
   {
     grade: 'Class 11',
     to: '/class-12',
-    avatar: 'avatar-lg',
+    avatar: 'avatar-class-11',
     label: 'Explore',
   },
   {
     grade: 'Class 10',
     to: '/class-12',
-    avatar: 'class-avatar',
+    avatar: 'avatar-class-10',
     label: 'Explore',
   },
 ];
@@ -47,42 +50,42 @@ const classes = [
 const features = [
   {
     art: 'feat-video',
-    tint: 'purple',
+    tint: 'video',
     title: 'Interactive Videos',
-    text: 'Transform your teaching and learning experience with our interactive video lessons for each topic. It suits time and brings better understanding with visual educational experience.',
+    text: 'Transform your teaching and learning experience with fun interactive videos lessons for each topic. It suits time and brings better understanding with visual educational experience.',
   },
   {
     art: 'feat-test',
-    tint: 'blue',
+    tint: 'test',
     title: 'Testpaper',
-    text: "Teachers can effortlessly create custom test papers on any topic, subject or exam. Students can also access a wide selection of testpapers. It's a perfect resource for both creative Testpapers and evaluate them on understanding and entertaining.",
+    text: 'Teachers can effortlessly create custom test papers on any topic, subject or exam. Students can also access a wide selection of testpapers. It\'s a perfect resource for both creative Testpapers and evaluate them on understanding and entertaining.',
   },
   {
     art: 'feat-chat',
-    tint: 'orange',
+    tint: 'chat',
     title: 'Group Chat',
     text: 'Connect and exchange ideas easily using our group chat system. It creates advancement in group projects, debate discussions or collaborative learning by instantly connecting with 1 click group.',
   },
   {
     art: 'feat-quiz',
     fallback: 'feat-test',
-    tint: 'purple',
+    tint: 'quiz',
     title: 'Quizzes & Simulations',
     text: 'Our highly interactive in-lesson and end-of-lesson quizzes help students get critical insights into their perfect. It provide enganging and exciting approach to monitor all students and their lessons via Diagnostic Reports.',
   },
   {
     art: 'feat-class',
     fallback: 'feat-video',
-    tint: 'green',
+    tint: 'class',
     title: 'Classroom',
     text: 'Conduct hassle-free virtual classes on our Smart Classroom platform. Create, schedule classes and conduct classes with ease.',
   },
   {
     art: 'feat-report',
     fallback: 'feat-test',
-    tint: 'blue',
+    tint: 'report',
     title: 'Report & Statistics',
-    text: 'Maximize student success with our Monthly Report, Test paper assessment, progress tracking scores, and attendance moments to level up learning game and take timely corrective actions.',
+    text: 'Maximise student success with our Monthly Report, Testpaper assessment, progress tracking scores, and attendance moments to level up learning game and take timely corrective actions.',
   },
 ];
 
@@ -222,101 +225,210 @@ export default function Home() {
     setReviewIndex((prev) => (prev < studentReviews.length - 1 ? prev + 1 : 0));
   };
 
+  const [selectedClass, setSelectedClass] = useState('12');
+
   return (
-    <SitePage header={{ active: 'Home', showNews: true }} footer={{ columns: ['company', 'centres', 'exams', 'connect', 'quick', 'products'] }} className="home-page">
-      {/* 1. HERO SECTION */}
-      <section className="home-hero">
-        <div className="container home-hero__inner">
-          <div className="home-hero__copy">
-            <span className="home-hero__badge">The Most |</span>
-            <h1 className="home-hero__title">
-              Learning <span>Platform</span>
+    <SitePage header={{ active: 'Home', showNews: false }} footer={{ columns: ['company', 'centres', 'exams', 'connect', 'quick', 'products'] }} className="home-page">
+      {/* 1. INTERACTIVE DARK HERO SECTION */}
+      <section className="hero-dark">
+        {/* Background Glows & Grid Accent */}
+        <div className="hero-dark__grid" aria-hidden="true" />
+        <div className="hero-dark__glow hero-dark__glow--purple" aria-hidden="true" />
+        <div className="hero-dark__glow hero-dark__glow--amber" aria-hidden="true" />
+
+        {/* Main Container */}
+        <div className="container hero-dark__container">
+          {/* Left Content Column */}
+          <div className="hero-dark__left">
+            {/* Main Heading */}
+            <h1 className="hero-dark__title">
+              The Most{' '}
+              <span className="hero-dark__title-gradient">
+                [Interactive]
+              </span>{' '}
+              <br />
+              Learning Platform
             </h1>
-            <p className="home-hero__desc">
-              Nexu Guru is a E-learning platform for the teacher and students to explore and enhance their skills and creativity in the filed of practical learning. Nexu Guru believes in enhancing the creativity of young kids in the near future.
+
+            {/* Subtitle */}
+            <p className="hero-dark__subtitle">
+              Empowering students and educators through real-time practical learning, instant teacher chat support, and curated interactive modules designed for top academic performance.
             </p>
 
-            {/* 3 Class Cards */}
-            <div className="home-classes-row">
-              {classes.map((c) => (
-                <Link key={c.grade} to={c.to} className="home-class-card">
-                  <div className="home-class-card__avatar">
-                    <img src={img[c.avatar] || img['avatar-sm']} alt={c.grade} />
-                  </div>
-                  <div className="home-class-card__info">
-                    <strong>{c.grade}</strong>
-                    <span>{c.label} &rsaquo;</span>
-                  </div>
-                </Link>
-              ))}
+            {/* Class Navigation Cards */}
+            <div className="hero-dark__classes">
+              {/* Class 12 */}
+              <div 
+                onClick={() => setSelectedClass('12')}
+                className={`hero-dark__class-card ${selectedClass === '12' ? 'is-active' : ''}`}
+              >
+                <div className="hero-dark__class-top">
+                  <span className="hero-dark__class-name">Class 12</span>
+                  <span className="hero-dark__class-emoji">🧪</span>
+                </div>
+                <p className="hero-dark__class-level">Level 12</p>
+                <div className="hero-dark__class-action">
+                  <span>Explore Notes</span>
+                  <ChevronRight size={13} />
+                </div>
+                <span className="hero-dark__class-count">👥 Count</span>
+              </div>
+
+              {/* Class 11 */}
+              <div 
+                onClick={() => setSelectedClass('11')}
+                className={`hero-dark__class-card ${selectedClass === '11' ? 'is-active' : ''}`}
+              >
+                <div className="hero-dark__class-top">
+                  <span className="hero-dark__class-name">Class 11</span>
+                  <span className="hero-dark__class-emoji">📐</span>
+                </div>
+                <p className="hero-dark__class-level">Level 11</p>
+                <div className="hero-dark__class-action">
+                  <span>Explore Notes</span>
+                  <ChevronRight size={13} />
+                </div>
+                <span className="hero-dark__class-count">👥 Count</span>
+              </div>
+
+              {/* Class 10 */}
+              <div 
+                onClick={() => setSelectedClass('10')}
+                className={`hero-dark__class-card ${selectedClass === '10' ? 'is-active' : ''}`}
+              >
+                <div className="hero-dark__class-top">
+                  <span className="hero-dark__class-name">Class 10</span>
+                  <span className="hero-dark__class-emoji">📚</span>
+                </div>
+                <p className="hero-dark__class-level">Level 10</p>
+                <div className="hero-dark__class-action">
+                  <span>Explore Notes</span>
+                  <ChevronRight size={13} />
+                </div>
+                <span className="hero-dark__class-count">👥 Count</span>
+              </div>
             </div>
 
-            {/* Full width Entrance button */}
-            <Link to="/entrance" className="home-hero__entrance-btn">
-              Entrance Preparation &rarr;
-            </Link>
+            {/* Action Buttons */}
+            <div className="hero-dark__actions">
+              <Link to="/entrance" className="hero-dark__btn-primary">
+                <span>Explore Entrance Preparation</span>
+                <ArrowRight size={16} />
+              </Link>
+
+              <Link to="/class-12" className="hero-dark__btn-secondary">
+                <span>Browse All Courses</span>
+                <BookOpen size={16} />
+              </Link>
+            </div>
+
+            {/* Social Proof Bar */}
+            <div className="hero-dark__proof">
+              <div className="hero-dark__avatars">
+                <img className="hero-dark__avatar" src={img['avatar-class-12'] || img['avatar-lg']} alt="Student" />
+                <img className="hero-dark__avatar" src={img['avatar-bipana'] || img['avatar-sm']} alt="Student" />
+                <img className="hero-dark__avatar" src={img['avatar-class-10'] || img['avatar-sm']} alt="Student" />
+              </div>
+              <div>
+                <div className="hero-dark__rating">
+                  ★★★★★ <span className="hero-dark__score">4.9/5</span>
+                </div>
+                <p className="hero-dark__rating-text">Trusted by 10,000+ students across top schools.</p>
+              </div>
+            </div>
           </div>
 
-          {/* Right Column: Interactive Phone Chat Mockup */}
-          <div className="home-hero__visual">
-            <div className="home-decor-ruler-left" aria-hidden="true" />
-            <img className="home-decor-triangle" src={img['home-ruler']} alt="" aria-hidden="true" />
-            <img className="home-decor-cap" src={img['home-cap']} alt="" aria-hidden="true" />
+          {/* Right Preview Column (Phone Mockup) */}
+          <div className="hero-dark__right">
+            {/* Mobile Shell */}
+            <div className="hero-dark__phone">
+              {/* Screen Inner */}
+              <div className="hero-dark__phone-screen">
+                {/* Header */}
+                <div className="hero-dark__phone-header">
+                  <div className="hero-dark__mentor">
+                    <ChevronRight size={16} className="hero-dark__back-icon" />
+                    <img className="hero-dark__mentor-avatar" src={img['avatar-lg']} alt="Mentor" />
+                    <span className="hero-dark__mentor-name">Nexu Guru</span>
+                  </div>
+                </div>
 
-            <div className="home-phone-mockup">
-              <div className="home-phone__speaker" />
-              <div className="home-phone__header">
-                <img src={img['logo1'] || img['logo']} alt="Nexu Guru" className="home-phone__logo" />
+                {/* Chat Thread */}
+                <div className="hero-dark__chat">
+                  {/* Bubble 1 */}
+                  <div className="hero-dark__bubble">
+                    <div className="hero-dark__bubble-user">
+                      <img className="hero-dark__bubble-avatar" src={img['avatar-bipana'] || img['avatar-sm']} alt="Student" />
+                      <span className="hero-dark__bubble-author">Bipana <span className="hero-dark__role">(Student)</span></span>
+                    </div>
+                    <p className="hero-dark__bubble-text">Hello Sir! I need Class {selectedClass} Chemistry Notes.</p>
+                  </div>
+
+                  {/* Bubble 2 */}
+                  <div className="hero-dark__bubble hero-dark__bubble--teacher">
+                    <div className="hero-dark__bubble-user">
+                      <img className="hero-dark__bubble-avatar" src={img['avatar-lg']} alt="Teacher" />
+                      <span className="hero-dark__bubble-author">Anil Sir <span className="hero-dark__role">(Teacher)</span></span>
+                    </div>
+                    <p className="hero-dark__bubble-text">Which specific chapter do you need assistance with?</p>
+                  </div>
+
+                  {/* Bubble 3 */}
+                  <div className="hero-dark__bubble">
+                    <div className="hero-dark__bubble-user">
+                      <img className="hero-dark__bubble-avatar" src={img['avatar-class-10'] || img['avatar-sm']} alt="Student" />
+                      <span className="hero-dark__bubble-author">Aastha <span className="hero-dark__role">(Student)</span></span>
+                    </div>
+                    <p className="hero-dark__bubble-text">Class {selectedClass} Science Faculty Notes updated.</p>
+                  </div>
+                </div>
+
+                {/* Input Area */}
+                <div className="hero-dark__input-wrap">
+                  <div className="hero-dark__input">
+                    <span>Ask a doubt to faculty...</span>
+                    <div className="hero-dark__input-actions">
+                      <Smile size={15} />
+                      <span className="hero-dark__send-btn">
+                        Send <ArrowRight size={12} />
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="home-phone__chat">
-                {/* Message 1 (Yellow) */}
-                <div className="chat-bubble chat-bubble--yellow">
-                  <div className="chat-bubble__avatar">
-                    <img src={img['avatar-sm']} alt="Bipana" />
-                  </div>
-                  <div className="chat-bubble__content">
-                    <span className="chat-bubble__name">Student Bipana</span>
-                    <p>Hello Sir! I need Notes.</p>
-                  </div>
-                </div>
+            </div>
 
-                {/* Message 2 (Purple) */}
-                <div className="chat-bubble chat-bubble--purple">
-                  <div className="chat-bubble__content chat-bubble__content--right">
-                    <span className="chat-bubble__name">Anil Sir</span>
-                    <p>Hello Bipana!<br />Which Notes do you want?</p>
-                  </div>
-                  <div className="chat-bubble__avatar">
-                    <img src={img['avatar-lg']} alt="Anil Sir" />
-                  </div>
-                </div>
-
-                {/* Message 3 (Yellow) */}
-                <div className="chat-bubble chat-bubble--yellow">
-                  <div className="chat-bubble__avatar">
-                    <img src={img['class-avatar']} alt="Aasha" />
-                  </div>
-                  <div className="chat-bubble__content">
-                    <span className="chat-bubble__name">Student Aasha</span>
-                    <p>Class 12 Science Faculty Notes.</p>
-                  </div>
-                </div>
+            {/* Floating Glassmorphic Badge 1: Pass Rate */}
+            <div className="hero-dark__badge hero-dark__badge--pass">
+              <div className="hero-dark__badge-icon hero-dark__badge-icon--amber">
+                <Award size={20} />
               </div>
+              <div>
+                <p className="hero-dark__badge-title">Exam Pass Rate:</p>
+                <p className="hero-dark__badge-val">98.4% <span className="hero-dark__badge-sub">Top Marks</span></p>
+              </div>
+            </div>
 
-              <button type="button" className="home-phone__cta">
-                Continue Chat
-              </button>
+            {/* Floating Glassmorphic Badge 2: Active Users */}
+            <div className="hero-dark__badge hero-dark__badge--users">
+              <div className="hero-dark__badge-icon hero-dark__badge-icon--purple">
+                <Users size={20} />
+              </div>
+              <div>
+                <p className="hero-dark__badge-val">1,420+</p>
+                <p className="hero-dark__badge-title">Active Students Online</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. FUN WAY OF LEARNING (6 CARDS) */}
+      {/* 2. FUN WAY OF LEARNING (6 HORIZONTAL CARDS) */}
       <section className="container home-fun">
         <h2 className="home-section-title">Fun way of learning!</h2>
         <div className="home-fun__grid">
           {features.map((f) => (
-            <article key={f.title} className="home-fun__card">
+            <article key={f.title} className={`home-fun__card home-fun__card--${f.tint}`}>
               <div className={`home-fun__icon-wrap home-fun__icon-wrap--${f.tint}`}>
                 <img
                   src={img[f.art] || img[f.fallback] || img['feat-video']}
@@ -340,7 +452,7 @@ export default function Home() {
             return (
               <div key={st.label} className="home-counter-item">
                 <div className="home-counter-item__icon">
-                  <Icon size={28} />
+                  <Icon size={30} />
                 </div>
                 <div className="home-counter-item__data">
                   <strong>{st.num}</strong>
@@ -514,6 +626,19 @@ export default function Home() {
           </div>
 
           <div className="home-about-portrait">
+            <svg className="home-about-doodle home-about-doodle--cap" viewBox="0 0 24 24" fill="none" stroke="#bda5ea" strokeWidth="1.5" aria-hidden="true">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c3 3 9 3 12 0v-5" />
+            </svg>
+            <svg className="home-about-doodle home-about-doodle--book" viewBox="0 0 24 24" fill="none" stroke="#bda5ea" strokeWidth="1.5" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
+            <svg className="home-about-doodle home-about-doodle--atom" viewBox="0 0 24 24" fill="none" stroke="#bda5ea" strokeWidth="1.5" aria-hidden="true">
+              <circle cx="12" cy="12" r="2" />
+              <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)" />
+              <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(-30 12 12)" />
+            </svg>
             <img
               src={img['about-student'] || img['avatar-lg']}
               alt="Nexu Guru student"

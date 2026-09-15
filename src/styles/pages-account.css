@@ -102,6 +102,75 @@
 .app.is-dark h1, .app.is-dark dd, .app.is-dark strong, .app.is-dark .app-side__item { color: #eeeaff; }
 .app.is-dark .app-top__search, .app.is-dark .app-top__icon, .app.is-dark .pf-badges div { background: #221f40; }
 
+/* ================= Auth Role Selector ================= */
+.auth-role-wrap { display: flex; flex-direction: column; gap: 8px; }
+.auth-role-label { font-size: 12.5px; font-weight: 600; color: var(--text); }
+.auth-role-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.auth-role-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--line-strong);
+  background: #faf9fd;
+  cursor: pointer;
+  transition: all .2s cubic-bezier(.4,0,.2,1);
+  font-family: var(--font);
+  text-align: left;
+  position: relative;
+  width: 100%;
+}
+.auth-role-btn:hover {
+  border-color: var(--purple);
+  background: var(--purple-50);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(67,22,155,.10);
+}
+.auth-role-btn.active {
+  border-color: var(--role-border, var(--purple));
+  background: var(--role-bg, var(--purple-50));
+  box-shadow: 0 4px 16px rgba(67,22,155,.13);
+  transform: translateY(-1px);
+}
+.auth-role-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--purple-100);
+  color: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all .2s;
+}
+.auth-role-btn:hover .auth-role-icon {
+  background: var(--role-bg, var(--purple-100));
+  color: var(--role-color, var(--purple));
+}
+.auth-role-text { flex: 1; min-width: 0; }
+.auth-role-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.auth-role-text small { display: block; font-size: 10.5px; color: var(--muted); margin-top: 2px; white-space: nowrap; }
+.auth-role-check {
+  position: absolute; top: 7px; right: 7px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--role-color, var(--purple));
+  color: #fff;
+  font-size: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  animation: role-pop .2s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes role-pop { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+
+@media (max-width: 480px) {
+  .auth-role-row { grid-template-columns: 1fr; }
+  .auth-role-btn { padding: 10px 12px; }
+}
+
 /* ================= Auth ================= */
 .auth { min-height: 100vh; display: flex; flex-direction: column; background: linear-gradient(180deg, #f6f4fe, #efebfc); padding: 24px 36px; }
 .auth__top { display: flex; align-items: center; justify-content: space-between; }

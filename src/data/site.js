@@ -5,7 +5,7 @@ export const mainNav = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Study Materials', mega: true },
-  { label: 'Smart School', to: null },
+  { label: 'Smart School', to: '/smart-school' },
   { label: 'Blogs', to: '/blogs' },
   { label: 'News & Updates', to: '/news', optional: true },
   { label: 'Nexu Store', to: '/store' },
@@ -16,7 +16,7 @@ export const footerColumns = {
   centres: { title: 'NEXU Centres', links: [['Attariya'], ['Dhangadhi'], ['Kathmandu'], ['Butwal'], ['Pokhara']] },
   exams: { title: 'Popular Exams', links: [['SEE'], ['+2 (NEB)', '/class-12'], ['IOE', '/entrance'], ['CMAT', '/entrance'], ['CEE', '/entrance']] },
   connect: { title: 'Connect With Us', links: [['Mail Us', 'mailto:contact@nexuguru.com'], ['Talk to A Counsellor', '/contact']] },
-  quick: { title: 'Quick Links', links: [['Study Materials', '/class-12'], ['Smart School'], ['Nexu Store', '/store'], ['FAQs', '/faq'], ['Doubt Support', '/report-issue']] },
+  quick: { title: 'Quick Links', links: [['Study Materials', '/class-12'], ['Smart School', '/smart-school'], ['Nexu Store', '/store'], ['FAQs', '/faq'], ['Doubt Support', '/report-issue']] },
   products: { title: 'Our Products', links: [['NEN Offline App'], ['Nexu Guru App'], ['Nexu Books']] },
 };
 

@@ -14,6 +14,8 @@ import './styles/pages-marketing.css';
 import './styles/pages-policy.css';
 import './styles/pages-study.css';
 import './styles/pages-account.css';
+import './styles/admin.css';
+import './styles/chatbot.css';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(<App />);

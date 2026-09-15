@@ -45,7 +45,7 @@
 .site-nav__item:hover, .site-nav__item.is-active { color: var(--purple); }
 .site-nav__item.is-active { font-weight: 600; }
 .site-nav__item.is-active::after, .site-nav__item.is-open::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--purple);
+  content: ''; position: absolute; left: 12px; right: 12px; bottom: 28px; height: 3px; border-radius: 3px; background: var(--purple);
 }
 .site-nav__item--mega.is-open { color: var(--purple); font-weight: 600; }
 .site-nav__item--mega.is-open::before { content: ''; position: absolute; inset: 16px 0; background: var(--purple-50); border-radius: 10px; z-index: -1; }

@@ -21,3 +21,5 @@ export { default as ReportIssue } from './ReportIssue.jsx';
 export { default as Profile } from './Profile.jsx';
 export { Login, Register } from './Auth.jsx';
 export { default as ScreenIndex } from './ScreenIndex.jsx';
+export { default as AdminDashboard } from './AdminDashboard.jsx';
+export { default as SmartSchool } from './SmartSchool.jsx';
